@@ -2,15 +2,16 @@ import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
 
 // Components
-import {Button, Divider, GradientBackground, Input} from '@components';
+import {Button, Divider, GradientBackground} from '@components';
 
 // Styles
 import styles from './styles';
 
+// Store
 import {useAppDispatch, useAppSelector} from '@store';
 import {setLogged} from '@store/auth/authSlice';
 
-const SignIn = () => {
+const Dashboard = () => {
   const dispatch = useAppDispatch();
   const isLogged = useAppSelector(state => state.auth.isLogged);
 
@@ -24,20 +25,10 @@ const SignIn = () => {
         <Text style={styles.title}>FIAP</Text>
         <Text style={styles.subTitle}>Educação que transforma!</Text>
         <Divider size={32} />
-        <Input placeholder="Digite seu e-mail" keyboardType="email-address" />
-        <Divider size={12} />
-        <Input placeholder="Digite sua senha" secureTextEntry />
-        <Divider size={24} />
-        <Button onPress={signIn} text="Entrar" />
-        <Divider size={12} />
-        <Button
-          onPress={() => {}}
-          text="Não possui conta? Clique aqui"
-          primary={false}
-        />
+        <Button onPress={signIn} text="Voltar pro Login" />
       </SafeAreaView>
     </GradientBackground>
   );
 };
 
-export {SignIn};
+export {Dashboard};
