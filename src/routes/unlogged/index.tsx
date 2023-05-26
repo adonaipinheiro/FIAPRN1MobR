@@ -2,14 +2,14 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 // Types
-import type {IAuthStack} from './types';
+import type {IUnloggedStack} from './types';
 
 // Screens
 import {SignIn} from '@screens';
 
-const Stack = createStackNavigator<IAuthStack>();
+const Stack = createStackNavigator<IUnloggedStack>();
 
-export function AuthStack() {
+export function UnloggedStack() {
   return (
     <Stack.Navigator
       screenOptions={{

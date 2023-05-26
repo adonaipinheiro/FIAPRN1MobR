@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {$COLORS} from '@utils';
 
 const styles = StyleSheet.create({
   container: {
@@ -6,6 +7,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export const colors = ['#e91c5d', '#ba1247'];
+export const colors = [$COLORS.primary, $COLORS.primaryDark];
 
 export default styles;

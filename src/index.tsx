@@ -8,13 +8,15 @@ import {Routes} from '@routes';
 // Store
 import {store} from '@store';
 
+// Utils
+import {$COLORS} from './utils/colors';
+
 export default function App() {
   return (
     <Provider store={store}>
       <StatusBar
-        translucent
         barStyle={'light-content'}
-        backgroundColor={'transparent'}
+        backgroundColor={$COLORS.primaryDark}
       />
       <Routes />
     </Provider>

@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
 
 // Components
-import {Button, Divider, GradientBackground} from '@components';
+import {Button, Divider} from '@components';
 
 // Styles
 import styles from './styles';
@@ -20,14 +20,12 @@ const Dashboard = () => {
   }
 
   return (
-    <GradientBackground>
-      <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>FIAP</Text>
-        <Text style={styles.subTitle}>Educação que transforma!</Text>
-        <Divider size={32} />
-        <Button onPress={signIn} text="Voltar pro Login" />
-      </SafeAreaView>
-    </GradientBackground>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>FIAP</Text>
+      <Text style={styles.subTitle}>Educação que transforma!</Text>
+      <Divider size={32} />
+      <Button primary onPress={signIn} text="Voltar pro Login" />
+    </SafeAreaView>
   );
 };
 

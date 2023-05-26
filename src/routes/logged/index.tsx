@@ -5,7 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import type {ILoggedStack} from './types';
 
 // Screens
-import {Dashboard} from '@screens';
+import {LoggedDrawer} from './drawer';
 
 const Stack = createStackNavigator<ILoggedStack>();
 
@@ -15,7 +15,7 @@ export function LoggedStack() {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Dashboard" component={Dashboard} />
+      <Stack.Screen name="Drawer" component={LoggedDrawer} />
     </Stack.Navigator>
   );
 }

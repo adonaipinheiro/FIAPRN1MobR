@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
 // Routes
-import {AuthStack} from './auth';
+import {UnloggedStack} from './unlogged';
 import {LoggedStack} from './logged';
 
 // Store
@@ -13,7 +13,11 @@ export function Routes() {
 
   return (
     <NavigationContainer>
-      {isLogged ? <AuthStack /> : <LoggedStack />}
+      {isLogged ? <UnloggedStack /> : <LoggedStack />}
     </NavigationContainer>
   );
 }
+
+export type {LoggedRouteProps} from './logged/types';
+export type {UnloggedRouteProps} from './unlogged/types';
+export type {LoggedDrawerRouteProps} from './logged/drawer/types';

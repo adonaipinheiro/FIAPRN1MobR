@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {$COLORS} from '@utils';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   primary: {
-    backgroundColor: '#FFF',
+    backgroundColor: $COLORS.white,
   },
   secondary: {
     backgroundColor: 'transparent',
@@ -23,10 +24,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   textButtonPrimary: {
-    color: '#ba1247',
+    color: $COLORS.primaryDark,
   },
   textButtonSecondary: {
-    color: '#FFF',
+    color: $COLORS.white,
   },
 });
 
