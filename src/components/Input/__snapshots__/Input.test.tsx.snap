@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> Should take Snapshot 1`] = `
+<View
+  style={
+    {
+      "width": "100%",
+    }
+  }
+>
+  <TextInput
+    autoCapitalize="none"
+    autoComplete="off"
+    autoCorrect={false}
+    placeholderTextColor="#F2F2F290"
+    style={
+      {
+        "backgroundColor": "#0002",
+        "borderRadius": 4,
+        "color": "#f2f2f2",
+        "height": 40,
+        "padding": 10,
+      }
+    }
+  />
+</View>
+`;
