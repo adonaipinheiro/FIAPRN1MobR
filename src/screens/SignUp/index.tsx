@@ -12,20 +12,20 @@ import styles from './styles';
 import {useAppDispatch, useAppSelector} from '@store';
 import {setLogged} from '@store/auth/authSlice';
 
-// Route Props
+// Routes Props
 import {UnloggedRouteProps} from '@routes';
 
-const SignIn = () => {
+const SignUp = () => {
   const navigation = useNavigation<UnloggedRouteProps>();
   const dispatch = useAppDispatch();
   const isLogged = useAppSelector(state => state.auth.isLogged);
 
-  function signIn() {
+  function signUp() {
     dispatch(setLogged(!isLogged));
   }
 
-  function goToSignUp() {
-    navigation.push('SignUp');
+  function goToSignIn() {
+    navigation.popToTop();
   }
 
   return (
@@ -34,15 +34,19 @@ const SignIn = () => {
         <Text style={styles.title}>FIAP</Text>
         <Text style={styles.subTitle}>Educação que transforma!</Text>
         <Divider size={32} />
+        <Input placeholder="Digite seu nome" autoCapitalize="words" />
+        <Divider size={12} />
         <Input placeholder="Digite seu e-mail" keyboardType="email-address" />
         <Divider size={12} />
         <Input placeholder="Digite sua senha" secureTextEntry />
+        <Divider size={12} />
+        <Input placeholder="Repita sua senha" secureTextEntry />
         <Divider size={24} />
-        <Button onPress={signIn} text="Entrar" />
+        <Button onPress={signUp} text="Cadastrar" />
         <Divider size={12} />
         <Button
-          onPress={goToSignUp}
-          text="Não possui conta? Clique aqui"
+          onPress={goToSignIn}
+          text="Já possui conta? Clique aqui"
           primary={false}
         />
       </SafeAreaView>
@@ -50,4 +54,4 @@ const SignIn = () => {
   );
 };
 
-export {SignIn};
+export {SignUp};

@@ -14,6 +14,7 @@ export function LoggedStack() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        animationEnabled: false,
       }}>
       <Stack.Screen name="Drawer" component={LoggedDrawer} />
     </Stack.Navigator>
