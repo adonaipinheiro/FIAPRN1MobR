@@ -13,7 +13,7 @@ export function Routes() {
 
   return (
     <NavigationContainer>
-      {isLogged ? <UnloggedStack /> : <LoggedStack />}
+      {isLogged ? <LoggedStack /> : <UnloggedStack />}
     </NavigationContainer>
   );
 }

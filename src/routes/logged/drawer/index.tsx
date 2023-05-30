@@ -14,7 +14,7 @@ import {$COLORS} from '@utils';
 const Drawer = createDrawerNavigator();
 
 const renderIcon = (color: string, name: string) => (
-  <Icon name={name} color={color} />
+  <Icon name={name} color={color} size={16} />
 );
 
 const drawerOptions: DrawerNavigationOptions = {
