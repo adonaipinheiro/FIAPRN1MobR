@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FIAP</string>
+    <string name="title">FIAP</string>
+    <string name="sub_title">Educação que transforma!</string>
 </resources>
