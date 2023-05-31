@@ -9,6 +9,7 @@
       "@routes/hooks": ["./src/routes/hooks"],
       "@store": ["./src/store"],
       "@store/*": ["./src/store/*"],
+      "@hooks": ["./src/hooks"],
       "@utils": ["./src/utils"]
     }
   }

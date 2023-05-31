@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {KeyboardAvoidingView, Platform, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 // Components
@@ -15,13 +15,18 @@ import {setLogged} from '@store/auth/authSlice';
 // Route Props
 import {UnloggedRouteProps} from '@routes';
 
+// Hooks
+import {useToast} from '@hooks';
+
 const SignIn = () => {
   const navigation = useNavigation<UnloggedRouteProps>();
   const dispatch = useAppDispatch();
   const isLogged = useAppSelector(state => state.auth.isLogged);
+  const {toast} = useToast();
 
   function signIn() {
     dispatch(setLogged(!isLogged));
+    toast('success', 'Bem-vindo(a) a FIAP', 'Educação que transforma!');
   }
 
   function goToSignUp() {
@@ -30,7 +35,9 @@ const SignIn = () => {
 
   return (
     <GradientBackground>
-      <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.container}>
         <Text style={styles.title}>FIAP</Text>
         <Text style={styles.subTitle}>Educação que transforma!</Text>
         <Divider size={32} />
@@ -45,7 +52,7 @@ const SignIn = () => {
           text="Não possui conta? Clique aqui"
           primary={false}
         />
-      </SafeAreaView>
+      </KeyboardAvoidingView>
     </GradientBackground>
   );
 };

@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
-import SplashScreen from 'react-native-splash-screen';
-import crashlytics from '@react-native-firebase/crashlytics';
+
+import Toast from 'react-native-toast-message';
 
 // Routes
 import {Routes} from '@routes';
@@ -11,13 +11,13 @@ import {Routes} from '@routes';
 import {store} from '@store';
 
 // Utils
-import {$COLORS} from './utils/colors';
+import {$COLORS} from '@utils';
+
+// Hooks
+import {useAPP} from '@hooks';
 
 export default function App() {
-  useEffect(() => {
-    SplashScreen.hide();
-    crashlytics().log('App mounted.');
-  }, []);
+  const {toastConfig} = useAPP();
 
   return (
     <Provider store={store}>
@@ -26,6 +26,7 @@ export default function App() {
         backgroundColor={$COLORS.primaryDark}
       />
       <Routes />
+      <Toast config={toastConfig} position="bottom" visibilityTime={2000} />
     </Provider>
   );
 }
