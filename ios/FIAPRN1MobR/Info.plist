@@ -58,6 +58,8 @@
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSUserTrackingUsageDescription</key>
+  <string>Com essa permissão, a FIAP aprimora cada vez mais suas experiências</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
