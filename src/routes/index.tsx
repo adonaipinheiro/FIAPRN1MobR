@@ -5,14 +5,18 @@ import {NavigationContainer} from '@react-navigation/native';
 import {UnloggedStack} from './unlogged';
 import {LoggedStack} from './logged';
 
-// Store
-import {useAppSelector} from '@store';
+// Hook
+import {useRoutes} from './useRoutes';
 
 export function Routes() {
-  const isLogged = useAppSelector(state => state.auth.isLogged);
+  const {isLogged, navigationRef, onScreenReady, onScreenStateChange} =
+    useRoutes();
 
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      ref={navigationRef}
+      onReady={onScreenReady}
+      onStateChange={onScreenStateChange}>
       {isLogged ? <LoggedStack /> : <UnloggedStack />}
     </NavigationContainer>
   );

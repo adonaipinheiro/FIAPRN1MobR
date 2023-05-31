@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "555776163281",
+    "project_id": "fiap-1mobr",
+    "storage_bucket": "fiap-1mobr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555776163281:android:3159575f9a0e46124634f0",
+        "android_client_info": {
+          "package_name": "com.fiaprn1mobr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEfeH-CS2ChtV64GrEV6e5x_9gXbK8UDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
