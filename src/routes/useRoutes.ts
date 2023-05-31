@@ -1,12 +1,11 @@
-import {useRef} from 'react';
 import analytics from '@react-native-firebase/analytics';
 import {useNavigationContainerRef} from '@react-navigation/native';
+import {useRef} from 'react';
 
-// Store
 import {useAppSelector} from '@store';
 
 export function useRoutes() {
-  const routeNameRef = useRef<String>();
+  const routeNameRef = useRef<string>();
   const navigationRef = useNavigationContainerRef();
   const isLogged = useAppSelector(state => state.auth.isLogged);
 

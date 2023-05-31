@@ -1,11 +1,8 @@
-import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import React from 'react';
 
-// Routes
-import {UnloggedStack} from './unlogged';
 import {LoggedStack} from './logged';
-
-// Hook
+import {UnloggedStack} from './unlogged';
 import {useRoutes} from './useRoutes';
 
 export function Routes() {

@@ -1,14 +1,11 @@
-import React from 'react';
 import {
   DrawerNavigationOptions,
   createDrawerNavigator,
 } from '@react-navigation/drawer';
+import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-// Screens
 import {Dashboard} from '@screens';
-
-// Utils
 import {$COLORS} from '@utils';
 
 const Drawer = createDrawerNavigator();

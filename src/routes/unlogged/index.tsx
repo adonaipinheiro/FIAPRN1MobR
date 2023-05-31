@@ -1,14 +1,10 @@
-import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import React from 'react';
 
-// Types
-import type {IUnloggedStack} from './types';
-
-// Screens
 import {SignIn, SignUp} from '@screens';
-
-// Utils
 import {$COLORS} from '@utils';
+
+import type {IUnloggedStack} from './types';
 
 const Stack = createStackNavigator<IUnloggedStack>();
 

@@ -1,7 +1,8 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import {Button} from './';
 import {Text, TouchableOpacity} from 'react-native';
+import renderer from 'react-test-renderer';
+
+import {Button} from './';
 
 const mockFn = jest.fn();
 

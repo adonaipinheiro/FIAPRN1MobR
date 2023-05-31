@@ -7,10 +7,8 @@ import Toast, {
   InfoToast,
 } from 'react-native-toast-message';
 
-// Utils
 import {$COLORS} from '@utils';
 
-// Types
 type ToastTypes = 'success' | 'error' | 'info';
 
 export function useToast() {

@@ -1,12 +1,10 @@
 import React, {memo} from 'react';
-import {TextInput, TextInputProps, View, Text} from 'react-native';
+import {Text, TextInput, TextInputProps, View} from 'react-native';
 
-// Interface
 interface InputProps extends TextInputProps {
   error?: string;
 }
 
-// Styles
 import styles from './styles';
 
 export const Input = memo(({error, ...props}: InputProps) => {

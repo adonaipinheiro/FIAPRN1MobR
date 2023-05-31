@@ -1,15 +1,11 @@
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
 
-// Components
 import {Button, Divider} from '@components';
-
-// Styles
-import styles from './styles';
-
-// Store
 import {useAppDispatch, useAppSelector} from '@store';
 import {setLogged} from '@store/auth/authSlice';
+
+import styles from './styles';
 
 const Dashboard = () => {
   const dispatch = useAppDispatch();

@@ -1,22 +1,14 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {KeyboardAvoidingView, Platform, Text} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 
-// Components
 import {Button, Divider, GradientBackground, Input} from '@components';
-
-// Styles
-import styles from './styles';
-
-// Store
+import {useToast} from '@hooks';
+import {UnloggedRouteProps} from '@routes';
 import {useAppDispatch, useAppSelector} from '@store';
 import {setLogged} from '@store/auth/authSlice';
 
-// Route Props
-import {UnloggedRouteProps} from '@routes';
-
-// Hooks
-import {useToast} from '@hooks';
+import styles from './styles';
 
 const SignIn = () => {
   const navigation = useNavigation<UnloggedRouteProps>();

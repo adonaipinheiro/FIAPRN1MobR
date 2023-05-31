@@ -1,14 +1,12 @@
 import React, {memo} from 'react';
 import {Text, TouchableOpacity, TouchableOpacityProps} from 'react-native';
 
-// Interface
 interface ButtonProps extends TouchableOpacityProps {
   text: string;
   primary?: boolean;
   loading?: boolean;
 }
 
-// Styles
 import styles from './styles';
 
 export const Button = memo(

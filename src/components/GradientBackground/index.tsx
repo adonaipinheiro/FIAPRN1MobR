@@ -1,10 +1,8 @@
 import React, {PropsWithChildren, memo} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
-// Interface
-interface GradientBackgroundProps extends PropsWithChildren {}
+type GradientBackgroundProps = PropsWithChildren;
 
-// Styles
 import styles, {colors} from './styles';
 
 export const GradientBackground = memo(
