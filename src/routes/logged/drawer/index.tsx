@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Dashboard} from '@screens';
 import {$COLORS} from '@utils';
 
+import {CustomDrawerContent} from './components';
 import {ILoggedDrawer} from './types';
 
 const Drawer = createDrawerNavigator<ILoggedDrawer>();
@@ -28,7 +29,9 @@ const drawerOptions: DrawerNavigationOptions = {
 
 export function LoggedDrawer() {
   return (
-    <Drawer.Navigator screenOptions={drawerOptions}>
+    <Drawer.Navigator
+      drawerContent={CustomDrawerContent}
+      screenOptions={drawerOptions}>
       <Drawer.Screen
         name="Dashboard"
         options={{

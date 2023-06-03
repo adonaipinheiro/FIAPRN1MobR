@@ -1,20 +1,29 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 
+import {LoadingScreen} from '@components';
+
 import {LoggedStack} from './logged';
 import {UnloggedStack} from './unlogged';
 import {useRoutes} from './useRoutes';
 
 export function Routes() {
-  const {isLogged, navigationRef, onScreenReady, onScreenStateChange} =
-    useRoutes();
+  const {
+    user,
+    initializing,
+    navigationRef,
+    onScreenReady,
+    onScreenStateChange,
+  } = useRoutes();
+
+  if (initializing) return <LoadingScreen />;
 
   return (
     <NavigationContainer
       ref={navigationRef}
       onReady={onScreenReady}
       onStateChange={onScreenStateChange}>
-      {isLogged ? <LoggedStack /> : <UnloggedStack />}
+      {user ? <LoggedStack /> : <UnloggedStack />}
     </NavigationContainer>
   );
 }
