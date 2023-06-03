@@ -8,7 +8,9 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Dashboard} from '@screens';
 import {$COLORS} from '@utils';
 
-const Drawer = createDrawerNavigator();
+import {ILoggedDrawer} from './types';
+
+const Drawer = createDrawerNavigator<ILoggedDrawer>();
 
 const renderIcon = (color: string, name: string) => (
   <Icon name={name} color={color} size={16} />

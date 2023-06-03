@@ -1,5 +1,7 @@
 import crashlytics from '@react-native-firebase/crashlytics';
+import messaging from '@react-native-firebase/messaging';
 import {useEffect} from 'react';
+import {Alert} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 import {useNotifications} from './useNotifications';
@@ -17,6 +19,14 @@ export function useAPP() {
   useEffect(() => {
     SplashScreen.hide();
     crashlytics().log('App mounted.');
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+    });
+
+    return unsubscribe;
   }, []);
 
   return {

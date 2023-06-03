@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {TextStyle, ViewStyle} from 'react-native';
+import type {TextStyle, ViewStyle} from 'react-native';
 import Toast, {
   BaseToast,
   BaseToastProps,

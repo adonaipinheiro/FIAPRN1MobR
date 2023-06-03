@@ -1,29 +1,13 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {KeyboardAvoidingView, Platform, Text} from 'react-native';
 
 import {Button, Divider, GradientBackground, Input} from '@components';
-import {useToast} from '@hooks';
-import {UnloggedRouteProps} from '@routes';
-import {useAppDispatch, useAppSelector} from '@store';
-import {setLogged} from '@store/auth/authSlice';
 
 import styles from './styles';
+import {useSignIn} from './useSignIn';
 
 const SignIn = () => {
-  const navigation = useNavigation<UnloggedRouteProps>();
-  const dispatch = useAppDispatch();
-  const isLogged = useAppSelector(state => state.auth.isLogged);
-  const {toast} = useToast();
-
-  function signIn() {
-    dispatch(setLogged(!isLogged));
-    toast('success', 'Bem-vindo(a) a FIAP', 'Educação que transforma!');
-  }
-
-  function goToSignUp() {
-    navigation.push('SignUp');
-  }
+  const {signIn, goToSignUp} = useSignIn();
 
   return (
     <GradientBackground>

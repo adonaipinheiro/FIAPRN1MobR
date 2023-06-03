@@ -40,7 +40,7 @@ describe('<Button />', () => {
   it('Should render corretly with text', () => {
     const inst = renderer.create(<Button {...propsNotPrimary} />);
     const text = inst.root.findByType(Text);
-    expect(text.props.children).toBe('Entrar');
+    expect(text.props.children).toBe(propsNotPrimary.text);
   });
 
   it('Should render corretly with onPress()', () => {
