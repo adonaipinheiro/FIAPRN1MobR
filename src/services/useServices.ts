@@ -16,6 +16,14 @@ export type UserReposType = {
 
 export type ListUserReposType = [UserReposType] | [];
 
+const SHOULD_LOG = false;
+
+function logError(err: any) {
+  if (SHOULD_LOG) {
+    console.log(err);
+  }
+}
+
 export function useServices() {
   async function listUserRepos(user: string) {
     try {
@@ -23,6 +31,7 @@ export function useServices() {
         .data as ListUserReposType;
       return repos;
     } catch (err) {
+      logError(err);
       throw Error;
     }
   }
@@ -41,6 +50,7 @@ export function useServices() {
       })
       .catch(err => {
         crashlytics().recordError(err);
+        logError(err);
         throw Error;
       });
   }
@@ -50,6 +60,7 @@ export function useServices() {
       .signInWithEmailAndPassword(email, pass)
       .catch(err => {
         crashlytics().recordError(err);
+        logError(err);
         throw Error;
       });
   }
@@ -62,7 +73,8 @@ export function useServices() {
     try {
       const user = auth().currentUser?.displayName;
       return user ? user : 'usuário';
-    } catch (error) {
+    } catch (err) {
+      logError(err);
       return 'usuário';
     }
   }

@@ -1,7 +1,7 @@
 import crashlytics from '@react-native-firebase/crashlytics';
 import messaging from '@react-native-firebase/messaging';
 import {useEffect} from 'react';
-import {Alert} from 'react-native';
+import {Alert, Platform} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 import {useNotifications} from './useNotifications';
@@ -11,8 +11,8 @@ import {useToast} from './useToast';
 export function useAPP() {
   const {toastConfig} = useToast();
   const {checkNotificationPermission, requestAPPTracking} = usePermissions();
-  useNotifications();
 
+  useNotifications();
   checkNotificationPermission();
   requestAPPTracking();
 
@@ -22,11 +22,16 @@ export function useAPP() {
   }, []);
 
   useEffect(() => {
-    const unsubscribe = messaging().onMessage(async remoteMessage => {
-      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-    });
+    if (Platform.OS === 'android') {
+      const unsubscribe = messaging().onMessage(async remoteMessage => {
+        Alert.alert(
+          'A new FCM message arrived!',
+          JSON.stringify(remoteMessage),
+        );
+      });
 
-    return unsubscribe;
+      return unsubscribe;
+    }
   }, []);
 
   return {
