@@ -5,7 +5,7 @@ import {
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import {Dashboard} from '@screens';
+import {Dashboard, Maps} from '@screens';
 import {$COLORS} from '@utils';
 
 import {CustomDrawerContent} from './components';
@@ -41,6 +41,15 @@ export function LoggedDrawer() {
           drawerIcon: ({color}) => renderIcon(color, 'home'),
         }}
         component={Dashboard}
+      />
+      <Drawer.Screen
+        name="Maps"
+        options={{
+          title: 'Mapas',
+          headerTitle: 'Mapas',
+          drawerIcon: ({color}) => renderIcon(color, 'map'),
+        }}
+        component={Maps}
       />
     </Drawer.Navigator>
   );

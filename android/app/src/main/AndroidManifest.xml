@@ -22,8 +22,11 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/icon_rounded" />
+      <meta-data
+          android:name="com.google.firebase.messaging.default_notification_icon"
+          android:resource="@drawable/icon_rounded" />
+      <meta-data
+          android:name="com.google.android.geo.API_KEY"
+          android:value="AIzaSyA5u1hrq_s_iChyijheYTrr8hoKJnyrWyQ"/>
     </application>
 </manifest>

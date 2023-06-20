@@ -1,15 +1,21 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Keyboard} from 'react-native';
 
 import {useToast} from '@hooks';
 import {useServices} from '@services';
+import {
+  useLazyListUserReposQuery,
+  useListUserReposQuery,
+} from '@store/services/githubApi';
 import {ListUserReposType} from 'src/services/useServices';
 
 export function useDashboard() {
   const {listUserRepos} = useServices();
   const [userProfile, setUserProfile] = useState<string>('');
   const [repos, setRepos] = useState<ListUserReposType>([]);
+  const {data, error, isLoading} = useListUserReposQuery('github');
   const {toast} = useToast();
+  const [trigger, result] = useLazyListUserReposQuery();
 
   const getRepos = () => {
     Keyboard.dismiss();
@@ -17,18 +23,27 @@ export function useDashboard() {
       toast('info', 'Atenção!', 'Usuário não informado');
       return;
     }
-    listUserRepos(userProfile)
-      .then(resp => {
-        setRepos(resp);
-      })
-      .catch(_ => {
+
+    trigger(userProfile).then(res => {
+      if (res.error) {
         toast(
           'error',
           'Atenção!',
           'Não foi possível encontrar os repositórios deste usuário',
         );
-      });
+      }
+
+      if (res.data) {
+        setRepos(res.data);
+      }
+    });
   };
+
+  useEffect(() => {
+    if (data) {
+      setRepos(data);
+    }
+  }, [data]);
 
   return {userProfile, setUserProfile, getRepos, repos};
 }
